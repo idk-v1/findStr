@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
     for (const fs::directory_entry& item : dirIt)
         if (item.is_regular_file())
         {
-            if (item.file_size() > sizeLimit)
+            if (item.file_size() > sizeLimit && sizeLimit != 0)
                 std::cout << "\x1B[31mNot attempted\x1B[0m \"" << item.path().lexically_normal().string() << "\"\n";
             else
             {
